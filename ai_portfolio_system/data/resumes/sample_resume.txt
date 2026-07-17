@@ -1,0 +1,9 @@
+姓名：叶加彬
+学校：烟台南山学院
+专业：人工智能（本科大三）
+技能：Python、LangChain、RAG、scikit-learn、Flask、FastAPI、SQLite、Git、Linux 基础
+项目经历：
+- 基于 RAG 的求职知识库助手：使用 Chroma 向量库、LangChain、FastAPI 构建，支持多 Agent 路由与 AI 自检。
+- 高校教师信息管理系统：使用 Flask + pyodbc + SQL Server 开发，实现教师信息 CRUD 与统计查询。
+- 51 单片机循迹小车：参与「零点」杯赛事，负责程序控制与调试。
+求职意向：AI 产品 / 数据分析 / 嵌入式 实习

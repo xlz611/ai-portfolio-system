@@ -1,0 +1,73 @@
+# AI 求职项目组合系统配置
+
+llm:
+  provider: mock  # mock | openai | ollama
+  openai:
+    model: gpt-4o-mini
+    api_key: null  # 从 OPENAI_API_KEY 环境变量读取
+    base_url: null
+  ollama:
+    model: qwen2.5
+    base_url: http://localhost:11434
+  mock:
+    model: mock-llm
+    temperature: 0.3
+
+embeddings:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  device: cpu
+
+retrieval:
+  vector:
+    persist_dir: ./data/chroma
+    collection_name: portfolio
+    chunk_size: 300
+    chunk_overlap: 50
+    top_k: 5
+    similarity_threshold: 0.5
+  web:
+    enabled: true
+    max_results: 5
+    timeout: 10
+    recency_days: 730  # 2 年
+    whitelist:
+      - github.com
+      - zhihu.com
+      - juejin.cn
+      - cnblogs.com
+      - csdn.net
+      - blog.csdn.net
+    blacklist:
+      - ad
+      - track
+  rerank:
+    enabled: false  # 无重排序模型时关闭
+
+tuning:
+  max_iterations: 3
+  score_threshold: 0.85
+  params:
+    - top_k
+    - temperature
+    - system_role
+
+sql:
+  db_path: ./data/job.db
+  read_only: true
+  allowed_tables:
+    - jobs
+    - candidates
+    - interviews
+    - skills
+  dangerous_keywords:
+    - DROP
+    - DELETE
+    - INSERT
+    - UPDATE
+    - ALTER
+    - TRUNCATE
+    - CREATE
+
+ui:
+  title: "AI Portfolio System"
+  model_name: "mock-llm"

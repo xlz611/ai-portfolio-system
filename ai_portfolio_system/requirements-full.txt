@@ -1,0 +1,11 @@
+# Full production dependencies (heavy, includes torch + Chroma).
+# Use this if you have a GPU or want real semantic embeddings / Chroma vector DB.
+
+-r requirements.txt
+
+chromadb>=0.5.0
+sentence-transformers>=3.0
+duckduckgo-search>=6.0
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0
